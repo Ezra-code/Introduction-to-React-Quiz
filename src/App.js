@@ -83,6 +83,8 @@ function App() {
   function HandleToggle() {
     if (isToggled) {
       setIsToggled("")
+    } else {
+      setIsToggled("Toggle Challenge")
     }
   }
   return (
