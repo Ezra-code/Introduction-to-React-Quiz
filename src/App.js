@@ -45,7 +45,7 @@ function Parent() {
   );
   function UpdateParent() {
     if (value) {
-    setValue("I am " + Math.floor(Math.random() * 70) + " and I am parent")
+    setValue("I am " + Math.floor(Math.random() * 70) + " and I was updated")
   }
 }
   return (
