@@ -24,56 +24,57 @@ const usersList = users.map((user) => {
 
 
 // // comment this out after completion and uncomment code below it to proceed
-function Child() {
-   return <div>This is children content</div>;
- }
+// function Child() {
+//    return <div>This is children content</div>;
+//  }
 //  Challenge: Uncomment this code to complete quiz
 
-// function Child(props) {
-//   function ChangeParent() {
-//     props.name("This is another child component")
+function Child(props) {
+  return (
+    <>
+      <div>Child</div>
+      <button onClick={ props.change}>Change Parent Value</button>
+    </>
+  );
+}
 
-//   }
-//   return (
-//     <>
-//       <div>Child</div>
-//       <button onClick={ ChangeParent}>Change Parent Value</button>
-//     </>
-//   );
-// }
 
-// function Parent() {
-//   const [value, setValue] = React.useState(
-//     "I need to be updated from my child"
-//   );
+function Parent() {
+  const [value, setValue] = React.useState(
+    "I need to be updated from my child"
+  );
+  function UpdateParent() {
+    if (value) {
+    setValue("I am " + Math.floor(Math.random() * 70) + " and I am parent")
+  }
+}
+  return (
+    <>
+      <h3>Update Parent State Challenge (Using Callback)</h3>
+      <div className="wrapper">
+        <div>Parent</div>
+        <div className="box-wrapper">{value}</div>
+      </div>
 
-//   return (
-//     <>
-//       <h3>Update Parent State Challenge (Using Callback)</h3>
-//       <div className="wrapper">
-//         <div>Parent</div>
-//         <div className="box-wrapper">{value}</div>
-//       </div>
-
-//       <div className="wrapper">
-//         <Child name="this is another child component"/>
-//       </div>
-//     </>
-//   );
-// }
+      <div className="wrapper">
+        <Child change={UpdateParent} />
+      </div>
+    </>
+  );
+}
 
 //Uncomment this to tackle quiz
 
 
 //Comment out after completion
-function Parent() {
-  return (
-    <div>
-      <h3>Parent Component</h3>
-      <Child />
-    </div>
-  );
-}
+// function Parent() {
+//   return (
+//     <div>
+//       <h3>Parent Component</h3>
+//       <Child />
+//     </div>
+//   );
+// }
 // Comment above code after completion
 
 function App() {
@@ -97,9 +98,6 @@ function App() {
       <ul>{usersList}</ul>
       <button onClick={HandleToggle}>Hide Element Below</button>
       <div>{isToggled}</div>
-      {/* <Parent>
-      <Child />
-    </Parent> */}
       <Parent/>
     </>
   );
