@@ -44,8 +44,12 @@ function Parent() {
     "I need to be updated from my child"
   );
   function UpdateParent() {
+    let components = ["Memory", "Hard Drive or Solid State Drive", "Video card", "Motherboard", "Processor", "Power Supply", "Monitor", "Keyboard and Mouse",]
+    console.log(components.length)
+    let randomIndex = Math.floor(Math.random() * 8)
+
     if (value) {
-    setValue("I am " + Math.floor(Math.random() * 70) + " and I was updated")
+    setValue("I am a " + components[randomIndex] + " and I was updated")
   }
 }
   return (
