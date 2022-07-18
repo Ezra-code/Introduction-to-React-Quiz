@@ -69,6 +69,7 @@ function Child() {
 function Parent() {
   return (
     <div>
+      <h3>Parent Component</h3>
       <Child />
     </div>
   );
@@ -77,6 +78,13 @@ function Parent() {
 
 function App() {
   const [] = React.useState(true);
+  const [isToggled, setIsToggled] = useState("Toggle Challenge")
+
+  function HandleToggle() {
+    if (isToggled) {
+      setIsToggled("")
+    }
+  }
   return (
     
     <>
@@ -85,11 +93,12 @@ function App() {
     <img src={logo} className="App-logo" alt="logo" />
       <h3>User names</h3>
       <ul>{usersList}</ul>
-      <button onClick={() => {}}>Hide Element Below</button>
-      <div>Toggle Challenge</div>
-      <Parent>
+      <button onClick={HandleToggle}>Hide Element Below</button>
+      <div>{isToggled}</div>
+      {/* <Parent>
       <Child />
-    </Parent>
+    </Parent> */}
+      <Parent/>
     </>
   );
 }
